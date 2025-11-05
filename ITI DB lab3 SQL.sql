@@ -77,6 +77,8 @@ select Fname+' '+Lname as [Employee Name],Pname
 from Employee
 join Project
 on Dno = Dnum
+join Departments
+on Dno = [Departments].Dnum
 order by Pname
 
 /* Display the data of the department which has the smallest employee ID over all employees' ID. */
@@ -103,8 +105,7 @@ join Departments
 on MGRSSN=SSN
 where MGRSSN not in
 (select Essn
-from Dependent
-group by ESSN)
+from Dependent)
 
 
 /*For each department-- if its average salary is less than the average salary of all employees--
